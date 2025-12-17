@@ -1,0 +1,44 @@
+npm i -D typescript
+npm install -D @types/node
+npm install tsx -D - NÃO PRECISA GERAR O ARQUIVO JS
+
+npx tsc --init
+npx tsc src/index.ts - converte para js
+
+npm i fastify
+
+npm i eslint @rocketseat/eslint-config -D
+
+
+npm install knex sqlite3 --save
+node run knex -- -h - passa os parametro para o knex
+npm run knex -- migrate:make create-documents - criar migration
+npm run knex -- migrate:latest - executar migration
+npm run knex -- migrate:rollback - refaz a migration
+
+npm i dotenv
+
+npm i zod
+
+npm i @fastify/cookie
+
+// Unitarios: Unidade da sua aplicação
+// Integração: Comunicação entre duas ou mais Unidade
+// e2e - ponta a ponta: simulam um usuario operando na nossa aplicação // entrar na ponta ate o banco de dados
+
+// Piramide de testes 
+
+testes
+npm i vitest -D
+npm i supertest -D
+npm i --save @types/supertest
+
+npm i tsup -D
+
+
+##################################
+
+REGRA DE NEGOCIO 
+
+RFs (Requisito funcionais)
+

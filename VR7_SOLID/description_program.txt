@@ -1,0 +1,79 @@
+npm i typescript @types/node tsx -D
+npx tsc --init
+
+npm i fastify
+npm install tsup
+
+npm i dotenv
+npm i zod 
+
+npm i eslint @rocketseat/eslint-config -D
+npx eslint --init
+
+npm i prisma -D 
+npx prisma init - cria uma conexão com banco
+npx prisma generate - cria de forma automatizada a tipagem
+npx prisma migrate dev - cria a migration
+
+Environment variables loaded from .env
+Prisma schema loaded from prisma\schema.prisma
+Datasource "db": PostgreSQL database "apisolid", schema "public" at "localhost:5432"
+
+? Enter a name for the new migration: » add role to users
+
+npx prisma migrate diff - levanta os comando para utilizar
+npx prisma studio - abri um web page 
+
+npm i bcryptjs - hash senha
+npm i -D @types/bcryptjs
+
+
+docker run --name api-solid-pg -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=postgres -e POSTGRESQL_DATABASE=apisolid -p 5432:5432 bitnami/postgresql 
+
+-e - serve para configurar o banco de dados como usuario, senha, banco de dados
+-- name - e o nome do container
+-p - e a porta do banco de dados
+
+CTRL + C - ELE ESTA RODANDO POR BAIXO
+docker logs "name do container" ou id -f - manter a visualização
+
+docker compose up -d - sobe um novo
+docker compose down - descarta o container
+docker compose stop - para o container
+docker compose start - inicia o container
+
+-d ele vai ficar rodando por back ground
+
+
+teste
+npm i vitest vite-tsconfig-paths -D
+npm i -D @vitest/ui
+
+it.only - executa uma unica vez
+it.skip - ele pulca o teste
+
+
+controlar tempo
+npm i days
+
+jwt - cria um webtoken para logar
+npm i @fastify/jwt
+
+#### test vitest
+npm link - ele cria um pacote repositoria
+npm link vitest-environment-prisma - ele cria todos 
+npm install -D npm-run-all
+npm i supertest -D
+npm i @types/supertest -D
+
+Esse dois arquivos só são executados no test:e2e não quuando estiver no watch
+"test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
+"test:install-prisma-environment": "npm link vitest-environment-prisma",
+
+cookie na app
+npm i @fastify/cookie
+path qual rota vai ter acesso ao cookie
+secure - ele e incripitado pelo https
+samiSite - so pode se acesso pela mesma app
+httpOnly - so pode ser acesso pelo back end so pode se acessado pela req ou repositoria
+signed - não e assinado 

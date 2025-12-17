@@ -1,0 +1,115 @@
+
+solid
+
+D - DEPENDENCY INVERSION PRINCIPLE 
+- A CLASS QUE VAI RECEBE A FUNÇÃO DO BANCO DE DADOS PARA DENTRO DELA
+- FACTORY PATTERN  - ELE DEVOLVE COM TODAS AS DEPENCENCIA 
+
+Para que servem os casos de uso? 
+para orquestrar as entidades e regras da aplicação
+
+Quais a principais responsabilidades dos Controllers?
+intermediar a requisição, repassar os dados para os casos de uso e retornar dados quando necessário
+
+Qual é o fator de custo no Bcrypt?
+O número de iterações usadas na função de hash.
+
+O que é um salt no contexto de hashing de senha ?
+um valor aleatório adicionado à senha antes de gerar o hash
+
+Para que serve o padrão Repository?
+para abstrair a persistencia de dados
+
+No SOLID, para que serve a Inversão de dependência?
+para evitar acoplamento e tornar a aplicação mais flexivel
+
+Qual é o principal benefício da utilização de interfaces de contrato na inversão de dependência?
+permitir a substituição de implementações sem modificar o codigo cliente
+
+Ao utilizarmos uma interface para um repositori, é correto afirmar que:
+Nossa aplicação dependerá de uma abstração e isso a tornará mais flexível e menos acoplada
+
+
+##########################################################
+
+Qual é o objetivo principal de limpar o contexto dos repositórios entre os testes unitários?
+Evitar interferências de testes anteriores nos teste subsequentes - Isso garante que cada teste seja executado em um estado limpo e consistente, 
+evitando que dados residuais de testes anteriores influenciem os resultados dos testes subsequentes.
+
+Seguindo a aula, em qual fase do ciclo de vida dos testes unitários deve ocorrer a limpeza do contexto?
+Antes de cada teste -Isso garante que cada teste unitário comece com um estado limpo e previsível, 
+eliminando qualquer interferência de testes anteriores e assegurando a independência e confiabilidade de cada teste.
+
+Em que tipo de teste a limpeza de contexto é especialmente importante ?
+Teste de unidade - Nos testes de unidade, cada teste deve ser completamente isolado dos outros para garantir que 
+está testando apenas a funcionalidade específica e independente do código. A limpeza do contexto antes de cada teste unitário 
+assegura que não haja interferências de estados residuais de outros testes, mantendo a precisão e confiabilidade dos resultados.
+
+
+Para que serve o padrão Factory Pattern?
+Para abstrair a criação de objetos sem expor a logica de criação beneficiando a reutilização - O Factory Pattern é utilizado para centralizar
+ a criação de objetos, permitindo que o código cliente utilize esses objetos sem precisar conhecer os detalhes de sua criação. 
+Isso promove a reutilização de código, facilita a manutenção e a evolução do sistema, e ajuda a encapsular a lógica de instanciamento.
+
+O que é TDD ?
+Um método de desenvolvimento de software que envolve escrever testes antes do código - No TDD, os desenvolvedores escrevem inicialmente os testes 
+que definem e validam o comportamento esperado de uma pequena parte do software. Somente depois de criar esses testes é que eles escrevem
+o código necessário para passar nos testes. Este ciclo de escrever um teste, fazer o código passar no teste e então refatorar é repetido continuamente.
+
+
+Quais os ciclos do TDD?
+Os ciclos do TDD (Test-Driven Development) são conhecidos como o ciclo "Red-Green-Refactor". Eles consistem nas seguintes etapas:
+
+O que é o mocking?
+Uma técnica para simular a execução de funções ou objetos - O mocking é utilizado em testes unitários para criar objetos
+simulados que imitam o comportamento de objetos reais. Isso permite isolar a unidade de código que está sendo testada, 
+substituindo dependências reais por simuladas, para que os testes sejam mais controlados e focados na funcionalidade específica.
+
+
+####################################################################
+
+Para que serve o "save-exact" no arquivo .npmrc?
+
+A configuração save-exact no arquivo .npmrc é usada para controlar como as versões das
+dependências são salvas no arquivo package.json quando você instala novos pacotes usando o npm. 
+Quando esta configuração está ativada (save-exact=true), o npm salva a versão exata da dependência que 
+foi instalada. Isso significa que não haverá caracteres de faixa de versão (^ ou ~) antes do número da versão no package.json.
+
+
+Para que servem os casos de uso?
+
+Casos de uso são uma ferramenta importante na engenharia de software,
+usada para descrever como um sistema deve se comportar em resposta a solicitações
+de usuários ou outras interações externas. Eles fornecem uma maneira de capturar os requisitos 
+funcionais de um sistema e são usados para guiar o desenvolvimento e a validação do software. 
+Aqui estão os principais objetivos e benefícios dos casos de uso:
+
+no solid, para que serve a inversão de dependência?
+
+A Inversão de Dependência (Dependency Inversion Principle - DIP) é uma das 
+cinco diretrizes do SOLID, que é um conjunto de princípios para a programação 
+orientada a objetos que ajudam a criar sistemas mais robustos, escaláveis e de fácil manutenção.
+
+Para que serve o padrão repository?
+
+O padrão Repository é um padrão de design na programação que serve principalmente para 
+abstrair a persistência de dados. Ele fornece uma interface que encapsula os detalhes 
+de como os dados são armazenados e recuperados, permitindo que o código de negócio interaja 
+com uma abstração em vez de diretamente com a infraestrutura de persistência.
+
+Qual é o principal benefício da utilização de interfaces de contrato na inversão de dependência?
+
+Permitir a substituição de implementação sem modificar o código cliente.
+
+Explicação
+Utilizar interfaces de contrato (ou abstrações) na inversão de dependência oferece 
+diversos benefícios, sendo o mais importante a capacidade de substituir implementações 
+concretas sem necessitar de modificações no código cliente. 
+Isso promove um sistema mais flexível, modular e fácil de manter.
+
+Para que serve o padrão Factory Pattern?
+ 
+O Factory Pattern (ou Padrão de Fábrica) é um padrão de design 
+criacional usado para criar objetos sem expor a lógica de criação ao 
+cliente e referenciar a nova classe criada usando uma interface comum. 
+Ele é particularmente útil quando a criação do objeto é complexa ou depende de parâmetros dinâmicos.

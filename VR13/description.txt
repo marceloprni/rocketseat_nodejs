@@ -1,0 +1,138 @@
+ npm i typescript @types/node tsx tsup -D
+
+ npm i fastify 
+ npm i dotoenv zod 
+
+ npm i eslint @rocketseat/eslint-config -D 
+
+ #npm i eslint -D - ESSE E SE VOCE QUE SER CONFIGURAR
+
+ npm i prisma -D
+ npm i @prisma/client
+ npx prisma -init
+
+ npx prisma migrate dev - ele cria o banco de dados
+ 1 - create users
+ npx prisma studio - ele abre um webbrowser
+
+ docker run --name api-solid-pg -e POSTGRESQL_USERNAME=docker -e POSTGRESQL_PASSWORD=docker -e POSTGRESQL_DATABASE=apisolid -p 5435:5432 bitnami/postgresql
+
+npm i bcryptjs
+npm i -D @types/bcryptjs
+
+npm i vitest vite-tsconfig-paths -D
+npm i @vitest/coverage-c8
+npm i -D @vitest/ui
+
+TDD (Test Driven Development) é uma abordagem de desenvolvimento de software em que os testes são escritos antes do código. Na aula, será explicado o conceito de TDD e aplicado no desenvolvimento da funcionalidade que valida se um usuário já realizou check-in no mesmo dia. Primeiramente, será criado o teste unitário e em seguida, o código será desenvolvido para que esse teste passe.
+
+Red, green and Refactor:
+
+O conceito "red, green and refactor" é uma abordagem do TDD (Test-Driven Development) para desenvolvimento de software. Consiste em três etapas:
+
+Red (Vermelho): nesta fase, o desenvolvedor escreve um teste que deve falhar, ou seja, ele garante que o teste não passará sem implementar o código necessário.
+Green (Verde): aqui, o desenvolvedor escreve a quantidade mínima de código necessária para fazer o teste passar.
+Refactor (Refatorar): após o teste passar, o desenvolvedor refatora o código para melhorar a qualidade, sem alterar seu comportamento.
+Essa abordagem garante que o código seja desenvolvido com base em testes confiáveis, resultando em um código mais limpo, seguro e fácil de manter.
+
+##############################
+
+ RF - REQUISITOS FUNCIONAIS
+
+ - DEVE SER POSSIVEL SE CADASTRAR [x]
+ - DEVE SER POSSIVEL SE AUTENTICAR
+ - DEVE SER POSSIVEL OBTER O PERFIL DE UM USUÁRIO LOGADO
+ - DEVE SER POSSIVEL OBTER O NÚMERO DE CEHCK-INS REALIZADOS PELO USUÁRIO LOGADO
+ - DEVE SER POSSIVEL O USUARIO OBTER SEU HISTORICO DE CHECK-INS
+ - DEVE SER POSSIVEL O USUARIO BUSCAR ACADEMIAS PROXIMAS 
+ - DEVE SER POSSIVEL O USUARIO BUSCAR ACADEMIAS PELO NOME
+ - DEVE SER POSSIVEL O USUARIO REALIZAR CHECK-IN EM UMA ACADEMIAS
+ - DEVE SER POSSIVEL VALIDAR O CHECK-IN DE UM USUÁRIO 
+ - DEVE SERP POSSIVEL CADASTRAR UMA ACADEMIA
+
+ RN - REGGRAS DE NEGOCIO 
+
+ - O USUARIO NÃO DEVE PODER SE CADASTRAR COM UM E-MAIL DUPLICADO
+ - O USUARIO NÃO PODE FAZER 2 CHECK-INS NO MESMO DIA 
+ - O USUARIO NÃO PODE FAZER CHECK-IN SE NÃO ESTIVER PERTO 100M DA ACADEMIA
+ - O CHECK-IN SÓ PODE SER VALIDADO ATE 20 MINUTOS APÓS CRIADO
+ - O CHECK-IN SÓ PODE SER VALIDADO POR ADMINISTRADORES
+ - A ACADEMIA SÓ PODE SER CADASTRADA POR ADMINISTRADORES 
+
+
+ RNF - REQUISITOS NÃO FUNCIONAIS
+
+ - A SENHA DO SUAURIO PRECISA ESTAR CRIPTOGRAFADA
+ - OS DADOS DA APLICAÇÃO PRECISAM ESTAR PERSISTIDOS EM UM BANCO POSTGRESQL
+ - TODAS LISTAS DE DADOS PRECISAM ESTAR PAGINADA COM 20 ITENS POR PAGINAS;
+ - O USUÁRIO DEVE SER IDENTIFICADO POR UM JWT
+
+
+ 
+onde o refresh token será retornado por meio de cookies.
+
+Sobre Refresh Token
+O Refresh Token é uma técnica utilizada para renovar o token de autenticação após seu tempo de 
+validade expirar. O Refresh Token é um token de longa duração que é gerado quando o usuário faz 
+login com suas credenciais. Esse token é usado para obter um novo Access Token quando o antigo expira.
+
+O Refresh Token é armazenado com segurança, geralmente em um cookie HttpOnly, para que não possa 
+ser acessado por scripts do lado do cliente. Quando o Access Token expira, o cliente envia o Refresh
+ Token ao servidor para obter um novo Access Token válido. Isso permite que os usuários permaneçam conectados
+  por um longo período sem precisar fazer login repetidamente.
+
+O uso de Refresh Tokens é uma prática de segurança recomendada em aplicações web, 
+uma vez que ajuda a minimizar o risco de acesso não autorizado por terceiros, especialmente se o
+ token de autenticação for roubado ou comprometido.
+
+Commit: Refresh Token & RBAC - Estratégia de refresh de token
+
+Integrando com front-end
+Caso precise integrar com o front-end, você deve ter se deparado com o refreshToken não sendo 
+setado nos cookies do navegador, para resolver esse problema, ilustraremos a solução utilizando o Axios:
+
+No servidor, adicione a propriedade credentials como true:
+app.register(cors, {
+  origin: true,
+  credentials: true,
+})
+No create ou nas requisições do Axios, adicione o withCredentials como true:
+const api = axios.create({
+  baseURL: 'http://localhost:3333',
+  withCredentials: true,
+})
+
+
+Nesta aula, será explicado o conceito de isolamento de ambiente nos testes end-to-end (e2e), com foco na 
+necessidade de se ter um banco de dados de testes separados do banco de dados de produção. Será implementado 
+um Test Environment do Vitest para o Prisma, que permitirá a criação de um ambiente de testes isolado para os testes e2e.
+
+Nota 1: No arquivo prisma/vitest-environment-prisma/prisma-test-environment.ts, é preciso adicionar uma nova propriedade:
+
+transformMode: 'ssr',
+Nota 2: Caso tenha buildado a aplicação e/ou tenha se deparado com erros No test suite found ao rodar os testes, você pode:
+
+Editar o arquivo vite.config.ts e adicionar dentro de test: dir: 'src'
+export default defineConfig({
+  plugins: [tsconfigPaths()],
+  test: {
+    environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
+    dir: 'src', // Essa linha
+  },
+})
+
+ir no diretorio prisma/vitest-environment-prisma/
+npm run link - ele cria um repositorio local no seu computador
+npm link vitest-environment-prisma
+npm run test
+
+#####################################
+
+remover o 
+npm un @vitest/coverage-c8
+npm i @vitest/coverage-v8 -D
+npm i vitest@latest vite-tsconfig-paths@latest @vitest/ui@latest @vitest/coverage-v8@latest -D
+npm i tsx@latest -D
+npm i vite -D
+
+npm run test:e2e -- --watch 

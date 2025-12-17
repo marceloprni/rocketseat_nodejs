@@ -1,0 +1,14 @@
+https://gigobyte.github.io/purify/adts/Either - either
+
+
+https://github.com/rocketseat-education/ignite-nodejs-04-clean-domain/commit/391179f086ce3f59a8245be571afca796d21e985
+https://github.com/rocketseat-education/ignite-nodejs-04-clean-domain/commit/9168ea7c0212df83ab66e0ea90935a9b9c8edf8b
+https://github.com/rocketseat-education/ignite-nodejs-04-clean-domain/commit/4e42ab952d6c6b4e30bb79b7214322ce18ce0fd0
+https://github.com/rocketseat-education/ignite-nodejs-04-clean-domain/commit/15a15b99d7c932bae4bdbdfee2f1406ad9a612cf
+https://github.com/rocketseat-education/ignite-nodejs-04-clean-domain/commit/69f5f3236fc890dc924e22293c540e762c29bb72
+https://github.com/rocketseat-education/ignite-nodejs-04-clean-domain/commit/cdc2b0cc46193eed451e88b1fa92ca80f79cb164
+https://github.com/rocketseat-education/ignite-nodejs-04-clean-domain/commit/d8ce21dce3dac37e7406dfa6a86bb30595c70c7c
+
+
+
+https://app.rocketseat.com.br/classroom/ddd-no-node-js/group/subdominios-and-domain-events/lesson/fundamentos-de-subdominios

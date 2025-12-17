@@ -1,0 +1,16 @@
+{
+  "name": "rockvr1",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "new project",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start":"node --watch server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
